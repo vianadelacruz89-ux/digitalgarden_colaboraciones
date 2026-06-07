@@ -1,0 +1,1503 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sin Filtros Nutrition — Brief para Creators</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --glow-blue: #7EC8E3;
+    --glow-blue-light: #E8F7FC;
+    --glow-blue-dark: #3A8FA8;
+    --mood-pink: #F4A7B9;
+    --mood-pink-light: #FDF0F3;
+    --mood-pink-dark: #C96A85;
+    --neutral-dark: #2C2C2C;
+    --neutral-mid: #666;
+    --neutral-light: #F9F9F9;
+    --white: #FFFFFF;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: #F5F4F0;
+    color: var(--neutral-dark);
+    line-height: 1.6;
+  }
+
+  /* HEADER */
+  .header {
+    background: var(--neutral-dark);
+    color: white;
+    text-align: center;
+    padding: 48px 32px 40px;
+  }
+
+  .header-label {
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #aaa;
+    margin-bottom: 12px;
+  }
+
+  .header h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 38px;
+    font-weight: 400;
+    letter-spacing: -0.5px;
+    margin-bottom: 8px;
+  }
+
+  .header-sub {
+    font-size: 14px;
+    color: #bbb;
+    font-weight: 300;
+    margin-bottom: 28px;
+  }
+
+  .header-pills {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .pill {
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+  }
+
+  .pill-blue { background: var(--glow-blue); color: #1a5f73; }
+  .pill-pink { background: var(--mood-pink); color: #8a2a45; }
+  .pill-white { background: rgba(255,255,255,0.15); color: white; border: 1px solid rgba(255,255,255,0.2); }
+
+  /* REGLAS GENERALES */
+  .general-rules {
+    max-width: 860px;
+    margin: 40px auto;
+    padding: 0 24px;
+  }
+
+  .rules-box {
+    background: white;
+    border-radius: 16px;
+    padding: 32px 36px;
+    border-left: 4px solid var(--neutral-dark);
+  }
+
+  .rules-box h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .rules-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .rule-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 13.5px;
+    color: var(--neutral-mid);
+  }
+
+  .rule-icon {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .rule-icon.ok { background: #d4edda; color: #2d6a4f; }
+  .rule-icon.no { background: #fde8e8; color: #c0392b; }
+
+  /* PRODUCT SECTIONS */
+  .product-section {
+    max-width: 860px;
+    margin: 0 auto 48px;
+    padding: 0 24px;
+  }
+
+  .product-header {
+    border-radius: 16px 16px 0 0;
+    padding: 32px 36px 28px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .product-header.blue { background: var(--glow-blue); }
+  .product-header.pink { background: var(--mood-pink); }
+
+  .product-header::after {
+    content: '';
+    position: absolute;
+    right: -20px;
+    top: -20px;
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    opacity: 0.15;
+  }
+
+  .product-header.blue::after { background: white; }
+  .product-header.pink::after { background: white; }
+
+  .product-tag {
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 8px;
+    opacity: 0.7;
+  }
+
+  .product-header.blue .product-tag { color: #1a5f73; }
+  .product-header.pink .product-tag { color: #8a2a45; }
+
+  .product-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: 44px;
+    font-weight: 400;
+    letter-spacing: -1px;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .product-header.blue .product-name { color: #0f4a5c; }
+  .product-header.pink .product-name { color: #7a1f3a; }
+
+  .product-tagline {
+    font-size: 14px;
+    font-weight: 400;
+    opacity: 0.8;
+  }
+
+  .product-header.blue .product-tagline { color: #1a5f73; }
+  .product-header.pink .product-tagline { color: #8a2a45; }
+
+  .product-meta {
+    display: flex;
+    gap: 16px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+  }
+
+  .meta-badge {
+    background: rgba(255,255,255,0.5);
+    border-radius: 20px;
+    padding: 5px 14px;
+    font-size: 12px;
+    font-weight: 500;
+  }
+
+  .product-header.blue .meta-badge { color: #0f4a5c; }
+  .product-header.pink .meta-badge { color: #7a1f3a; }
+
+  /* PRODUCT BODY */
+  .product-body {
+    background: white;
+    border-radius: 0 0 16px 16px;
+    overflow: hidden;
+  }
+
+  /* SPECS */
+  .specs-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .spec-block {
+    padding: 20px 28px;
+    border-right: 1px solid #f0f0f0;
+  }
+
+  .spec-block:last-child { border-right: none; }
+
+  .spec-label {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #aaa;
+    margin-bottom: 8px;
+  }
+
+  .spec-items {
+    list-style: none;
+  }
+
+  .spec-items li {
+    font-size: 13px;
+    color: var(--neutral-mid);
+    padding: 3px 0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .spec-items li::before {
+    content: '→';
+    font-size: 11px;
+    opacity: 0.4;
+  }
+
+  /* INSTRUCCIONES */
+  .instrucciones {
+    padding: 28px 28px 20px;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 18px;
+    font-weight: 400;
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .instr-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+
+  .instr-card {
+    border-radius: 10px;
+    padding: 16px 18px;
+    font-size: 13px;
+  }
+
+  .instr-card.blue-tint { background: var(--glow-blue-light); }
+  .instr-card.pink-tint { background: var(--mood-pink-light); }
+
+  .instr-card-title {
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+
+  .instr-card.blue-tint .instr-card-title { color: var(--glow-blue-dark); }
+  .instr-card.pink-tint .instr-card-title { color: var(--mood-pink-dark); }
+
+  .instr-card ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .instr-card li {
+    color: var(--neutral-mid);
+    line-height: 1.4;
+    padding-left: 12px;
+    position: relative;
+  }
+
+  .instr-card li::before {
+    content: '·';
+    position: absolute;
+    left: 0;
+    color: #bbb;
+  }
+
+  /* FRASES */
+  .frases {
+    padding: 22px 28px;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .frases-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-top: 4px;
+  }
+
+  .frase-hook, .frase-key, .frase-cta {
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 13px;
+    font-style: italic;
+    color: var(--neutral-mid);
+  }
+
+  .frase-hook.blue { background: #EEF9FD; border-left: 3px solid var(--glow-blue); }
+  .frase-hook.pink { background: #FDF0F3; border-left: 3px solid var(--mood-pink); }
+  .frase-key.blue { background: #EEF9FD; border-left: 3px solid var(--glow-blue); }
+  .frase-key.pink { background: #FDF0F3; border-left: 3px solid var(--mood-pink); }
+
+  .frase-label {
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-style: normal;
+    font-weight: 600;
+    margin-bottom: 6px;
+    display: block;
+  }
+
+  .frase-hook.blue .frase-label { color: var(--glow-blue-dark); }
+  .frase-hook.pink .frase-label { color: var(--mood-pink-dark); }
+  .frase-key.blue .frase-label { color: var(--glow-blue-dark); }
+  .frase-key.pink .frase-label { color: var(--mood-pink-dark); }
+
+  /* PLAN 7 DÍAS */
+  .plan {
+    padding: 28px;
+  }
+
+  .dias-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .dia-card {
+    border: 1px solid #efefef;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .dia-header {
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: default;
+  }
+
+  .dia-header.blue { background: var(--glow-blue-light); }
+  .dia-header.pink { background: var(--mood-pink-light); }
+
+  .dia-number {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 13px;
+    flex-shrink: 0;
+  }
+
+  .dia-number.blue { background: var(--glow-blue); color: #0f4a5c; }
+  .dia-number.pink { background: var(--mood-pink); color: #7a1f3a; }
+
+  .dia-title {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #999;
+    flex: 1;
+  }
+
+  .dia-videos {
+    padding: 16px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .video-row {
+    display: grid;
+    grid-template-columns: 100px 1fr 1fr;
+    gap: 12px;
+    align-items: start;
+  }
+
+  .video-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding-top: 10px;
+  }
+
+  .video-label.blue { color: var(--glow-blue-dark); }
+  .video-label.pink { color: var(--mood-pink-dark); }
+
+  .video-prompt {
+    background: #f7f7f7;
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 13px;
+    color: var(--neutral-dark);
+    font-weight: 500;
+  }
+
+  .video-script {
+    border: 1.5px dashed #ddd;
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 12.5px;
+    color: #555;
+    min-height: 60px;
+    line-height: 1.5;
+  }
+
+  .script-label {
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 3px;
+    margin-top: 8px;
+    font-style: normal;
+    font-weight: 700;
+    color: var(--glow-blue-dark);
+  }
+
+  .video-script .script-label:first-child {
+    margin-top: 0;
+  }
+
+  /* DIVIDER */
+  .section-divider {
+    max-width: 860px;
+    margin: 0 auto 48px;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .divider-line {
+    flex: 1;
+    height: 1px;
+    background: #ddd;
+  }
+
+  .divider-text {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #bbb;
+  }
+
+  /* FOOTER */
+  .footer {
+    background: var(--neutral-dark);
+    color: #888;
+    text-align: center;
+    padding: 28px;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+  }
+
+  .footer span { color: white; }
+
+  /* BRAND SECTION */
+  .brand-section {
+    max-width: 860px;
+    margin: 40px auto;
+    padding: 0 24px;
+  }
+
+  .brand-intro {
+    text-align: center;
+    margin-bottom: 28px;
+  }
+
+  .brand-intro-label {
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #aaa;
+    margin-bottom: 10px;
+  }
+
+  .brand-intro-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 32px;
+    font-weight: 400;
+    color: var(--neutral-dark);
+    margin-bottom: 8px;
+  }
+
+  .brand-intro-title em {
+    font-style: italic;
+    color: #888;
+  }
+
+  .brand-intro-sub {
+    font-size: 14px;
+    color: #999;
+    font-weight: 300;
+  }
+
+  .brand-card {
+    background: var(--neutral-dark);
+    border-radius: 16px;
+    padding: 36px;
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 36px;
+    margin-bottom: 16px;
+    align-items: start;
+  }
+
+  .brand-card-left {
+    border-right: 1px solid rgba(255,255,255,0.1);
+    padding-right: 36px;
+  }
+
+  .brand-eyebrow {
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #888;
+    margin-bottom: 8px;
+  }
+
+  .brand-name-big {
+    font-family: 'DM Serif Display', serif;
+    font-size: 42px;
+    color: white;
+    font-weight: 400;
+    margin-bottom: 20px;
+    line-height: 1;
+  }
+
+  .brand-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .brand-tag {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.12);
+    color: #ccc;
+    border-radius: 20px;
+    padding: 4px 12px;
+    font-size: 11px;
+  }
+
+  .brand-quote {
+    font-family: 'DM Serif Display', serif;
+    font-size: 17px;
+    font-style: italic;
+    color: #ddd;
+    line-height: 1.6;
+    margin-bottom: 16px;
+    border-left: 3px solid rgba(255,255,255,0.2);
+    padding-left: 20px;
+  }
+
+  .brand-quote-follow {
+    font-size: 13.5px;
+    color: #aaa;
+    line-height: 1.6;
+    padding-left: 23px;
+  }
+
+  .brand-quote-follow strong { color: #ddd; }
+
+  .brand-mission-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+
+  .brand-mission-block {
+    background: white;
+    border-radius: 12px;
+    padding: 22px 20px;
+  }
+
+  .brand-mission-icon {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #bbb;
+  }
+
+  .brand-mission-title {
+    font-weight: 600;
+    font-size: 13px;
+    margin-bottom: 8px;
+    color: var(--neutral-dark);
+  }
+
+  .brand-mission-text {
+    font-size: 12.5px;
+    color: var(--neutral-mid);
+    line-height: 1.5;
+  }
+
+  .brand-story-points {
+    background: white;
+    border-radius: 12px;
+    padding: 24px 28px;
+  }
+
+  .brand-story-label {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #bbb;
+    margin-bottom: 16px;
+  }
+
+  .brand-story-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+
+  .story-point {
+    background: #f7f7f7;
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 13px;
+    color: var(--neutral-mid);
+    line-height: 1.4;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .story-point::before {
+    content: '→';
+    font-size: 11px;
+    color: #ccc;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  @media (max-width: 640px) {
+    .brand-card { grid-template-columns: 1fr; }
+    .brand-card-left { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); padding-right: 0; padding-bottom: 24px; }
+    .brand-mission-row, .brand-story-grid { grid-template-columns: 1fr; }
+  }
+
+  /* HOOKS SECTION */
+  .hooks-section {
+    background: white;
+    border-radius: 16px;
+    padding: 32px 36px;
+    margin-bottom: 0;
+  }
+
+  .hooks-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+
+  .hook-item {
+    background: #f7f7f7;
+    border-radius: 10px;
+    padding: 14px 16px;
+    font-size: 13px;
+    color: var(--neutral-mid);
+    line-height: 1.45;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+
+  .hook-num {
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--glow-blue-dark);
+    letter-spacing: 1px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  @media (max-width: 640px) {
+    .hooks-grid { grid-template-columns: 1fr; }
+  }
+
+  /* END HOOKS */
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-label">Campaña Semana 1</div>
+  <h1>Sin Filtros Nutrition</h1>
+  <div class="header-sub">Brief para Creators · TikTok Shop</div>
+  <div class="header-pills">
+    <span class="pill pill-blue">GLOWMIES</span>
+    <span class="pill pill-white">3 videos/día · 7 días · TikTok Shop</span>
+  </div>
+</div>
+
+<!-- BRAND STORY -->
+<div class="brand-section">
+
+  <div class="brand-intro">
+    <div class="brand-intro-label">Antes de empezar, conocé la marca</div>
+    <h2 class="brand-intro-title">La historia detrás de <em>Sin Filtros</em></h2>
+    <p class="brand-intro-sub">Leer esto te va a ayudar a conectar de verdad con lo que estás comunicando.</p>
+  </div>
+
+  <!-- VALENTINA CARD -->
+  <div class="brand-card">
+    <div class="brand-card-left">
+      <div class="brand-eyebrow">La fundadora</div>
+      <div class="brand-name-big">Valentina</div>
+      <div class="brand-tags">
+        <span class="brand-tag">Mamá soltera</span>
+        <span class="brand-tag">2 niñas</span>
+        <span class="brand-tag">Inmigrante latina</span>
+        <span class="brand-tag">+8 años en EE.UU.</span>
+        <span class="brand-tag">Emprendedora</span>
+      </div>
+    </div>
+    <div class="brand-card-right">
+      <div class="brand-quote">
+        "Hubo un momento en el que no me reconocía frente al espejo. Mi confianza se había apagado, mi energía no era la misma… sentía que me estaba perdiendo en el proceso de darlo todo por los demás."
+      </div>
+      <div class="brand-quote-follow">
+        Pero poco a poco decidió elegirse otra vez. Decidió reconstruirse. Y fue ahí cuando empezó a recuperar su brillo — y cuando nació <strong>Sin Filtros Nutrition</strong>.
+      </div>
+    </div>
+  </div>
+
+  <!-- MISSION -->
+  <div class="brand-mission-row">
+    <div class="brand-mission-block">
+      <div class="brand-mission-icon">✦</div>
+      <div class="brand-mission-title">La misión</div>
+      <div class="brand-mission-text">Ayudar a mujeres reales a volver a priorizarse. Mujeres que están pasando por cambios en el cuerpo, hormonas, cansancio… y aun así siguen apareciendo todos los días.</div>
+    </div>
+    <div class="brand-mission-block">
+      <div class="brand-mission-icon">◈</div>
+      <div class="brand-mission-title">Los productos</div>
+      <div class="brand-mission-text">GLOWMIES y MOODMIES no son suplementos genéricos. Cada uno tiene una historia, una intención y un propósito real. Fueron creados pensando en mujeres como Valentina — y como vos.</div>
+    </div>
+    <div class="brand-mission-block">
+      <div class="brand-mission-icon">♡</div>
+      <div class="brand-mission-title">Lo que conecta</div>
+      <div class="brand-mission-text">No es necesario contar toda la historia en cada video. Tomá los elementos con los que más conectés y contálos desde tu propia experiencia. La autenticidad vende más que cualquier lista de beneficios.</div>
+    </div>
+  </div>
+
+  <!-- STORY POINTS -->
+  <div class="brand-story-points">
+    <div class="brand-story-label">Puntos de historia que podés mencionar en tus videos</div>
+    <div class="brand-story-grid">
+      <div class="story-point">La marca fue creada por una mamá latina e inmigrante</div>
+      <div class="story-point">Pasó por una etapa donde dejó de priorizarse a sí misma</div>
+      <div class="story-point">Quería volver a sentirse bien consigo misma</div>
+      <div class="story-point">No encontraba productos con los que realmente conectara</div>
+      <div class="story-point">Decidió crear una marca pensada para mujeres reales</div>
+      <div class="story-point">La misión es ayudar a las mujeres a volver a elegirse</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- REGLAS GENERALES -->
+<div class="general-rules">
+  <div class="rules-box">
+    <h2>📋 Reglas para toda la campaña</h2>
+    <div class="rules-grid">
+      <div class="rule-item">
+        <div class="rule-icon ok">✓</div>
+        <span>Hablar como si se lo contaras a una amiga</span>
+      </div>
+      <div class="rule-item">
+        <div class="rule-icon ok">✓</div>
+        <span>Mostrar el producto en uso, abrirlo en cámara</span>
+      </div>
+      <div class="rule-item">
+        <div class="rule-icon ok">✓</div>
+        <span>Priorizar historias y experiencias personales</span>
+      </div>
+      <div class="rule-item">
+        <div class="rule-icon ok">✓</div>
+        <span>Probar las gomitas en cámara y mostrar reacción real</span>
+      </div>
+      <div class="rule-item">
+        <div class="rule-icon ok">✓</div>
+        <span>Mencionar que son 2 gomitas al día y hay que ser constante</span>
+      </div>
+      <div class="rule-item">
+        <div class="rule-icon ok">✓</div>
+        <span>Duración: 15–30 seg (máximo 40 seg)</span>
+      </div>
+      <div class="rule-item">
+        <div class="rule-icon no">✗</div>
+        <span>No hacer promesas médicas ni decir que cura enfermedades</span>
+      </div>
+      <div class="rule-item">
+        <div class="rule-icon no">✗</div>
+        <span>No prometer resultados garantizados</span>
+      </div>
+      <div class="rule-item">
+        <div class="rule-icon no">✗</div>
+        <span>No leer ingredientes durante todo el video</span>
+      </div>
+      <div class="rule-item">
+        <div class="rule-icon no">✗</div>
+        <span>No grabar videos tipo comercial o muy producidos</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- SECCIÓN 1: GLOWMIES -->
+<!-- ============================================ -->
+
+<div class="product-section">
+  <div class="product-header blue">
+    <div class="product-tag">Producto 01</div>
+    <div class="product-name">GLOWMIES</div>
+    <div class="product-tagline">Gomitas para cabello, piel y uñas · Sabor Blueberry</div>
+    <div class="product-meta">
+      <span class="meta-badge">Se pronuncia: GLOOU MIS</span>
+      <span class="meta-badge">Sin azúcar añadida</span>
+      <span class="meta-badge">FDA · Non-GMO · GMP · Gluten Free</span>
+    </div>
+  </div>
+
+  <div class="product-body">
+
+    <!-- SPECS -->
+    <div class="specs-row">
+      <div class="spec-block">
+        <div class="spec-label">Beneficios clave</div>
+        <ul class="spec-items">
+          <li>Apoya el crecimiento del cabello y reduce la caída</li>
+          <li>Uñas más fuertes y resistentes</li>
+          <li>Piel con glow natural y más saludable</li>
+          <li>Trabaja desde adentro con uso constante</li>
+        </ul>
+      </div>
+      <div class="spec-block">
+        <div class="spec-label">Ingredientes a mencionar</div>
+        <ul class="spec-items">
+          <li>Biotina</li>
+          <li>Colágeno</li>
+          <li>Ácido Hialurónico</li>
+          <li>Vitaminas A, C y E</li>
+          <li>PQQ — diferenciador clave (la mayoría no lo tiene)</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- INSTRUCCIONES -->
+    <div class="instrucciones">
+      <div class="section-title">🎬 Qué debe tener cada video</div>
+      <div class="instr-grid">
+        <div class="instr-card blue-tint">
+          <div class="instr-card-title">Obligatorio mostrar</div>
+          <ul>
+            <li>Enseñar el frasco y abrirlo en cámara</li>
+            <li>Mostrar las gomitas de cerca</li>
+            <li>Consumirlas en cámara con reacción real</li>
+            <li>Hablar del sabor (rico, no parece suplemento)</li>
+          </ul>
+        </div>
+        <div class="instr-card blue-tint">
+          <div class="instr-card-title">Obligatorio decir</div>
+          <ul>
+            <li>No tienen azúcar añadida (CLAVE)</li>
+            <li>Beneficio principal: cabello, piel y uñas</li>
+            <li>Mencionar PQQ como diferenciador</li>
+            <li>Experiencia personal: por qué las tomás</li>
+            <li>Call to action: disponible en TikTok Shop</li>
+          </ul>
+        </div>
+        <div class="instr-card blue-tint">
+          <div class="instr-card-title">Suma mucho</div>
+          <ul>
+            <li>Antes y después (fotos o video antiguo)</li>
+            <li>Mostrar progreso real</li>
+            <li>Historia personal con cabello/piel/uñas</li>
+          </ul>
+        </div>
+        <div class="instr-card blue-tint">
+          <div class="instr-card-title">Evitar</div>
+          <ul>
+            <li>No mostrar el producto</li>
+            <li>No probar las gomitas en cámara</li>
+            <li>Videos largos sin estructura</li>
+            <li>Explicaciones complicadas</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- FRASES -->
+    <div class="frases">
+      <div class="section-title">💬 Frases y hooks sugeridos</div>
+      <div class="frases-grid">
+        <div class="frase-hook blue">
+          <span class="frase-label">Hook — primeros 3 seg</span>
+          "Esto no es candy…"
+        </div>
+        <div class="frase-hook blue">
+          <span class="frase-label">Hook — primeros 3 seg</span>
+          "La mayoría de las gomitas no tienen esto…"
+        </div>
+        <div class="frase-key blue">
+          <span class="frase-label">Frases clave</span>
+          "No son dulces, es un suplemento real"
+        </div>
+        <div class="frase-key blue">
+          <span class="frase-label">Frases clave</span>
+          "Son 2 gomitas al día y listo. Esto trabaja desde adentro."
+        </div>
+        <div class="frase-key blue">
+          <span class="frase-label">Call to action</span>
+          "Lo tenés aquí en el carrito" / "Lo podés comprar directo aquí"
+        </div>
+        <div class="frase-key blue">
+          <span class="frase-label">Sabor</span>
+          "Saben demasiado ricas. Literal parecen un candy."
+        </div>
+      </div>
+    </div>
+
+    <!-- PLAN 7 DÍAS -->
+    <div class="plan">
+      <div class="section-title">📅 Plan de 7 días — GLOWMIES</div>
+      <div class="dias-grid">
+
+        <!-- DÍA 1 -->
+        <div class="dia-card">
+          <div class="dia-header blue">
+            <div class="dia-number blue">1</div>
+            <div class="dia-title">Día 1 — Arranque</div>
+          </div>
+          <div class="dia-videos">
+            <div class="video-row">
+              <div class="video-label blue">Video 1</div>
+              <div class="video-prompt">La historia detrás de la marca</div>
+              <div class="video-script"><span class="script-label">Gancho</span>"Oye… ¿tú sabías que esta marca la creó una mamá latina igual que nosotras?"<br><br><span class="script-label">Guión</span>"Cuando me enteré que esta marca la creó Valentina, una mamá latina que literal estaba en esa etapa donde una se deja de última… dije wow, esto es demasiado real. Ella quería algo que nos hiciera sentir bien otra vez sin tanta vuelta. Y por eso nació Sin Filtros Nutrition."<br><br><span class="script-label">Visual</span>Botella en mano, tú en tu rutina.</div>
+            </div>
+            <div class="video-row">
+              <div class="video-label blue">Video 2</div>
+              <div class="video-prompt">¿Por qué acepté probar estas gomitas?</div>
+              <div class="video-script"><span class="script-label">Gancho</span>"No voy a mentir… al principio dije: otra vitamina más."<br><br><span class="script-label">Guión</span>"Pero cuando leí que la marca la hizo una mujer que estaba igual que yo… agotada, sin tiempo, sin priorizarse… dije: ok, quiero ver qué tal. Y además son gomitas, o sea… cero complicación. Si algo me ayuda sin complicarme la vida, yo lo intento."</div>
+            </div>
+            <div class="video-row">
+              <div class="video-label blue">Video 3</div>
+              <div class="video-prompt">Primeras impresiones y unboxing</div>
+              <div class="video-script"><span class="script-label">Gancho</span>"Ok, te voy a enseñar cómo vienen porque yo soy bien curiosa."<br><br><span class="script-label">Guión</span>"Amo que vengan así de simples. Nada exagerado. Huelen rico, no son duras, y lo mejor: no saben a medicina. Mañana empiezo mi semana probándolas y te cuento si me funcionan o si fueron puro show, ya tú sabes."</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- DÍA 2 -->
+        <div class="dia-card">
+          <div class="dia-header blue">
+            <div class="dia-number blue">2</div>
+            <div class="dia-title">Día 2 — Conexión personal</div>
+          </div>
+          <div class="dia-videos">
+            <div class="video-row">
+              <div class="video-label blue">Video 1</div>
+              <div class="video-prompt">Mi rutina actual</div>
+              <div class="video-script"><span class="script-label">Gancho</span>"Así empieza mi mañana sin filtros, literal."<br><br><span class="script-label">Guión</span>"Mira, yo me levanto medio zombie… hago café… y ahora estoy incorporando estas gomitas aquí mismo. No me complico, me las tomo mientras reviso mensajes. Si algo no cabe en mi rutina, no lo hago. Y esto sí cabe."</div>
+            </div>
+            <div class="video-row">
+              <div class="video-label blue">Video 2</div>
+              <div class="video-prompt">El problema con el que más me identifico</div>
+              <div class="video-script"><span class="script-label">Gancho</span>"A ver si a ti también te pasa…"<br><br><span class="script-label">Guión</span>"Yo siento que a veces vivo en piloto automático. Cansada, sin ganas, y mi piel y mi pelo son los primeros en delatarme. Por eso estoy probando estas gomitas… porque quiero volver a sentirme en mi versión 'normal'. No perfecta… normal."</div>
+            </div>
+            <div class="video-row">
+              <div class="video-label blue">Video 3</div>
+              <div class="video-prompt">POV relacionado con el producto</div>
+              <div class="video-script"><span class="script-label">POV</span>"POV: eres mujer latina tratando de cuidarte aunque todo el mundo te pide algo."<br><br><span class="script-label">Guión</span>"(Tomas rápidas: tú corriendo, tú arreglándote, tú tomando una gomita) Mi forma de sobrevivir sin perder la cordura: una gomita que me recuerde que también me toca cuidarme."</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- DÍA 3 -->
+        <div class="dia-card">
+          <div class="dia-header blue">
+            <div class="dia-number blue">3</div>
+            <div class="dia-title">Día 3 — Profundizar</div>
+          </div>
+          <div class="dia-videos">
+            <div class="video-row">
+              <div class="video-label blue">Video 1</div>
+              <div class="video-prompt">Lo que más me llamó la atención</div>
+              <div class="video-script"><span class="script-label">Gancho</span>"Te digo lo que más me sorprendió…"<br><br><span class="script-label">Guión</span>"Es el concepto de la marca. No es perfecta, no es estética de Pinterest, es realista. Mujeres reales cuidándose a su ritmo. Eso sí me hizo sentido."</div>
+            </div>
+            <div class="video-row">
+              <div class="video-label blue">Video 2</div>
+              <div class="video-prompt">Cómo las estoy incorporando a mi día</div>
+              <div class="video-script"><span class="script-label">Gancho</span>"La verdad… lo hago demasiado simple."<br><br><span class="script-label">Guión</span>"Las tengo en mi cartera. Si estoy fuera, me la tomo ahí mismo. Si estoy en la casa, la dejo junto al café. Esa es la única manera en que yo sigo algo: si es fácil."</div>
+            </div>
+            <div class="video-row">
+              <div class="video-label blue">Video 3</div>
+              <div class="video-prompt">Historia personal relacionada con cabello, piel o uñas</div>
+              <div class="video-script"><span class="script-label">Gancho</span>"Te voy a contar algo que nunca cuento…"<br><br><span class="script-label">Guión</span>"Hace unos meses sentía mi pelo opaco y mis uñas débiles. Y yo sé, mil razones puede haber… estrés, comida, vida. Pero dije: ok, déjame agregar algo que me apoye. No estoy buscando milagros, estoy buscando consistencia. Por eso estoy probando esto ahora."</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- DÍA 4 -->
+        <div class="dia-card">
+          <div class="dia-header blue">
+            <div class="dia-number blue">4</div>
+            <div class="dia-title">Día 4 — Educar y entretener</div>
+          </div>
+          <div class="dia-videos">
+            <div class="video-row">
+              <div class="video-label blue">Video 1</div>
+              <div class="video-prompt">Mitos o errores comunes</div>
+              <div class="video-script"><span class="script-label">Gancho</span>"El mayor error que hacemos con suplementos es este…"<br><br><span class="script-label">Guión</span>"Pensar que en 3 días vamos a ver cambios. No funciona así. Es constancia. Es hábito. Y por eso prefiero las gomitas… porque no me da flojera tomarlas."</div>
+            </div>
+            <div class="video-row">
+              <div class="video-label blue">Video 2</div>
+              <div class="video-prompt">Get Ready With Me</div>
+              <div class="video-script"><span class="script-label">Gancho</span>"Acompáñame a arreglarme rapidito…"<br><br><span class="script-label">Guión</span>"(Mientras te arreglás) Yo antes nunca tomaba nada porque todo era complicado. Pero ahora es literal: me maquillo, me arreglo y me tomo mi gomita. Fin."</div>
+            </div>
+            <div class="video-row">
+              <div class="video-label blue">Video 3</div>
+              <div class="video-prompt">Video respondiendo una pregunta frecuente</div>
+              <div class="video-script"><span class="script-label">Gancho</span>"La pregunta que más me han hecho…"<br><br><span class="script-label">Guión</span>"¿A qué saben? No saben a medicina. Son dulces pero no empalagosas. Es lo que más me gusta."</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- DÍA 5 -->
+        <div class="dia-card">
+          <div class="dia-header blue">
+            <div class="dia-number blue">5</div>
+            <div class="dia-title">Día 5 — Storytelling</div>
+          </div>
+          <div class="dia-videos">
+            <div class="video-row">
+              <div class="video-label blue">Video 1</div>
+              <div class="video-prompt">Storytime</div>
+              <div class="video-script"><span class="script-label">Gancho</span>"Te cuento el momento exacto en el que dije 'ya, tengo que cuidarme'."<br><br><span class="script-label">Guión</span>"Un día me vi en el espejo y sentí que estaba agotada… no cansada, AGOTADA. Ahí decidí hacer pequeños cambios. Uno de esos fue agregar algo que apoye mi bienestar sin complicarme. Por eso empecé con esto."</div>
+            </div>
+            <div class="video-row">
+              <div class="video-label blue">Video 2</div>
+              <div class="video-prompt">Mi producto favorito y por qué</div>
+              <div class="video-script"><span class="script-label">Gancho</span>"De todo lo que he probado… este es el que más me gusta."<br><br><span class="script-label">Guión</span>"Porque es fácil, porque sabe rico y porque no siento que estoy haciendo algo forzado. Es como un recordatorio dulce de que también me toca priorizarme."</div>
+            </div>
+            <div class="video-row">
+              <div class="video-label blue">Video 3</div>
+              <div class="video-prompt">Contenido tipo UGC</div>
+              <div class="video-script"><span class="script-label">Guión natural</span>"Esto es lo que verías si dejaras una cámara grabando mientras me preparo… (tomas en diferentes ángulos) …lista, café, gomita, y salgo. Simple."</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- DÍA 6 -->
+        <div class="dia-card">
+          <div class="dia-header blue">
+            <div class="dia-number blue">6</div>
+            <div class="dia-title">Día 6 — Consolidar</div>
+          </div>
+          <div class="dia-videos">
+            <div class="video-row">
+              <div class="video-label blue">Video 1</div>
+              <div class="video-prompt">Lo que aprendí sobre la marca</div>
+              <div class="video-script"><span class="script-label">Gancho</span>"Esto me hizo conectar muchísimo más con la marca…"<br><br><span class="script-label">Guión</span>"Valentina creó esto porque ella misma pasó por ese momento en el que dejó de priorizarse. Y cuando una ve eso, entiendes que no es solo marketing… es alguien igual que tú."</div>
+            </div>
+            <div class="video-row">
+              <div class="video-label blue">Video 2</div>
+              <div class="video-prompt">Mi rutina actualizada</div>
+              <div class="video-script"><span class="script-label">Gancho</span>"Así quedó mi rutina después de una semana probándolas…"<br><br><span class="script-label">Guión</span>"No cambió mi vida, pero sí cambió el mood de mi día. Me siento más organizada, más consciente y más constante."</div>
+            </div>
+            <div class="video-row">
+              <div class="video-label blue">Video 3</div>
+              <div class="video-prompt">Razones por las que decidí seguir tomándolas</div>
+              <div class="video-script"><span class="script-label">Gancho</span>"¿Las sigo tomando? Sí. Y por esto."<br><br><span class="script-label">Guión</span>"Porque no me da pereza, porque las disfruto y porque me recuerdan que puedo cuidarme aunque tenga mil cosas encima."</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- DÍA 7 -->
+        <div class="dia-card">
+          <div class="dia-header blue">
+            <div class="dia-number blue">7</div>
+            <div class="dia-title">Día 7 — Cerrar fuerte</div>
+          </div>
+          <div class="dia-videos">
+            <div class="video-row">
+              <div class="video-label blue">Video 1</div>
+              <div class="video-prompt">Review completa</div>
+              <div class="video-script"><span class="script-label">Gancho</span>"Ok, después de una semana… aquí está mi review SIN FILTROS."<br><br><span class="script-label">Guión</span>"Fáciles, ricas, cero complicación. No estoy diciendo que cambian tu vida en un día, pero sí te ayudan a crear ese hábito de priorizarte. Y eso vale."</div>
+            </div>
+            <div class="video-row">
+              <div class="video-label blue">Video 2</div>
+              <div class="video-prompt">¿A quién se las recomendaría?</div>
+              <div class="video-script"><span class="script-label">Gancho</span>"Esto es para ti si eres esta persona…"<br><br><span class="script-label">Guión</span>"Si eres mujer, vives apurada, te olvidas de ti, te da pereza cuidarte… esto te puede ayudar. Si te cuesta ser constante, más todavía."</div>
+            </div>
+            <div class="video-row">
+              <div class="video-label blue">Video 3</div>
+              <div class="video-prompt">Video de venta con CTA directo</div>
+              <div class="video-script"><span class="script-label">Gancho</span>"Si quieres empezar a cuidarte sin complicarte, escucha esto."<br><br><span class="script-label">Guión</span>"Mira, esto está en el carrito naranja. Sabe rico, es fácil de tomar y es perfecto para empezar sin sentirte abrumada. Toca el carrito y revisa la oferta."</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- HOOKS SECTION -->
+<div class="product-section">
+  <div class="hooks-section">
+    <div class="section-title" style="margin-bottom:20px;">🪝 21 Hooks para toda la campaña</div>
+    <p style="font-size:13px;color:var(--neutral-mid);margin-bottom:20px;">Diseñados para conectar, generar identificación y crear curiosidad. Podés usarlos en cualquier video de la semana.</p>
+    <div class="hooks-grid">
+      <div class="hook-item"><span class="hook-num">01</span>"Te voy a hablar sin filtros… ¿hace cuánto no te priorizas de verdad?"</div>
+      <div class="hook-item"><span class="hook-num">02</span>"No sé si a ti te pasa, pero yo llevaba meses sintiéndome apagada."</div>
+      <div class="hook-item"><span class="hook-num">03</span>"Cuando me enteré que esta marca la creó una mamá latina como nosotras, dije: ok, esto sí es real."</div>
+      <div class="hook-item"><span class="hook-num">04</span>"Yo no estaba buscando productos… estaba buscando volver a sentirme yo."</div>
+      <div class="hook-item"><span class="hook-num">05</span>"A ver si soy la única: ¿tú también te pones de última en tu lista?"</div>
+      <div class="hook-item"><span class="hook-num">06</span>"Esto no es estética, no es moda… es una realidad que casi nadie cuenta."</div>
+      <div class="hook-item"><span class="hook-num">07</span>"Yo estaba cansada de sentirme cansada. Literal."</div>
+      <div class="hook-item"><span class="hook-num">08</span>"Te digo la verdad… yo no confiaba en nada hasta que escuché la historia detrás de esta marca."</div>
+      <div class="hook-item"><span class="hook-num">09</span>"Si últimamente sientes que estás en piloto automático… quédate."</div>
+      <div class="hook-item"><span class="hook-num">10</span>"No vengo a venderte perfección, vengo a contarte algo que me movió."</div>
+      <div class="hook-item"><span class="hook-num">11</span>"Cuando una mujer deja de priorizarse, se nota… y yo lo estaba viviendo."</div>
+      <div class="hook-item"><span class="hook-num">12</span>"No sé en qué momento me dejé de última… pero ya no quiero seguir así."</div>
+      <div class="hook-item"><span class="hook-num">13</span>"Voy a ser honesta: probé esto porque necesitaba algo simple, no perfecto."</div>
+      <div class="hook-item"><span class="hook-num">14</span>"¿Te has sentido desconectada de ti? Porque yo sí… por mucho tiempo."</div>
+      <div class="hook-item"><span class="hook-num">15</span>"Yo no empecé esto por vanidad… empecé porque ya no me reconocía."</div>
+      <div class="hook-item"><span class="hook-num">16</span>"Nadie te dice lo difícil que es cuidarte cuando cargas con todo."</div>
+      <div class="hook-item"><span class="hook-num">17</span>"Esto lo encontré buscando algo que me apoyara sin complicarme."</div>
+      <div class="hook-item"><span class="hook-num">18</span>"No te voy a mentir, yo también pensé: otra vitamina más… hasta que conocí la historia."</div>
+      <div class="hook-item"><span class="hook-num">19</span>"¿Por qué es tan fácil olvidarnos de nosotras mismas? En serio, ¿por qué?"</div>
+      <div class="hook-item"><span class="hook-num">20</span>"A veces solo necesitas un pequeño recordatorio para volver a ti… esto está siendo el mío."</div>
+      <div class="hook-item"><span class="hook-num">21</span>"Si eres mujer latina y vives corriendo… vas a entender esto."</div>
+    </div>
+  </div>
+</div>
+
+<div class="product-section" style="display:none">
+  <div class="product-header pink">
+    <div class="product-tag">Producto 02</div>
+    <div class="product-name">MOODMIES</div>
+    <div class="product-tagline">Gomitas para equilibrio hormonal y bienestar emocional · Sabor Durazno</div>
+    <div class="product-meta">
+      <span class="meta-badge">Se pronuncia: MUUD MIS</span>
+      <span class="meta-badge">Sin azúcar añadida</span>
+      <span class="meta-badge">FDA · Non-GMO · GMP · Gluten Free</span>
+    </div>
+  </div>
+
+  <div class="product-body">
+
+    <!-- SPECS -->
+    <div class="specs-row">
+      <div class="spec-block">
+        <div class="spec-label">Beneficios clave</div>
+        <ul class="spec-items">
+          <li>Reduce la inflamación y el vientre hinchado</li>
+          <li>Apoya durante cólicos y molestias del ciclo</li>
+          <li>Ayuda con dolores de cabeza relacionados al PMS</li>
+          <li>Estado de ánimo más estable, menos irritabilidad</li>
+          <li>Sensación de calma y bienestar</li>
+        </ul>
+      </div>
+      <div class="spec-block">
+        <div class="spec-label">Ingredientes a mencionar</div>
+        <ul class="spec-items">
+          <li>Magnesio — relaja el cuerpo, apoya cólicos y tensión</li>
+          <li>Vitamina D3 — estado de ánimo y equilibrio emocional</li>
+          <li>Chasteberry / Vitex — balance hormonal, PMS</li>
+          <li>Fenogreco y soya — soporte hormonal natural</li>
+          <li>Vitamina E — bienestar general durante el ciclo</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- INSTRUCCIONES -->
+    <div class="instrucciones">
+      <div class="section-title">🎬 Qué debe tener cada video</div>
+      <div class="instr-grid">
+        <div class="instr-card pink-tint">
+          <div class="instr-card-title">Obligatorio mostrar</div>
+          <ul>
+            <li>Enseñar el frasco y abrirlo en cámara</li>
+            <li>Mostrar las gomitas de cerca</li>
+            <li>Consumirlas en cámara con reacción real</li>
+            <li>Hablar del sabor (rico, no parece suplemento)</li>
+          </ul>
+        </div>
+        <div class="instr-card pink-tint">
+          <div class="instr-card-title">Obligatorio decir</div>
+          <ul>
+            <li>No tienen azúcar añadida (CLAVE)</li>
+            <li>Beneficio principal: equilibrio hormonal y PMS</li>
+            <li>Experiencia personal: cambios de humor, ciclo</li>
+            <li>Call to action: disponible en TikTok Shop</li>
+          </ul>
+        </div>
+        <div class="instr-card pink-tint">
+          <div class="instr-card-title">Suma mucho</div>
+          <ul>
+            <li>Cambios en mood, energía o estabilidad emocional</li>
+            <li>Comparar cómo te sentías antes vs ahora</li>
+            <li>Conectar con mujeres que conocen el PMS</li>
+          </ul>
+        </div>
+        <div class="instr-card pink-tint">
+          <div class="instr-card-title">Evitar</div>
+          <ul>
+            <li>No mostrar el producto</li>
+            <li>No probar las gomitas en cámara</li>
+            <li>Videos largos sin estructura</li>
+            <li>Explicaciones complicadas de ingredientes</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- FRASES -->
+    <div class="frases">
+      <div class="section-title">💬 Frases y hooks sugeridos</div>
+      <div class="frases-grid">
+        <div class="frase-hook pink">
+          <span class="frase-label">Hook — primeros 3 seg</span>
+          "Si tu mood cambia todo el mes…"
+        </div>
+        <div class="frase-hook pink">
+          <span class="frase-label">Hook — primeros 3 seg</span>
+          "Esto me está ayudando con mi PMS…"
+        </div>
+        <div class="frase-key pink">
+          <span class="frase-label">Frases clave</span>
+          "No son dulces, es un suplemento real"
+        </div>
+        <div class="frase-key pink">
+          <span class="frase-label">Frases clave</span>
+          "Son 2 gomitas al día y listo. Esto me ayuda con mi humor."
+        </div>
+        <div class="frase-key pink">
+          <span class="frase-label">Call to action</span>
+          "Lo tenés aquí en el carrito" / "Lo podés comprar directo aquí"
+        </div>
+        <div class="frase-key pink">
+          <span class="frase-label">Conexión</span>
+          "Quería sentirme más estable durante el mes"
+        </div>
+      </div>
+    </div>
+
+    <!-- PLAN 7 DÍAS -->
+    <div class="plan">
+      <div class="section-title">📅 Plan de 7 días — MOODMIES</div>
+      <div class="dias-grid">
+
+        <!-- DÍA 1 -->
+        <div class="dia-card">
+          <div class="dia-header pink">
+            <div class="dia-number pink">1</div>
+            <div class="dia-title">Día 1 — Arranque</div>
+          </div>
+          <div class="dia-videos">
+            <div class="video-row">
+              <div class="video-label pink">Video 1</div>
+              <div class="video-prompt">La historia detrás de la marca</div>
+              <div class="video-script"><span class="script-label">Script / Guión</span>Escribí tu guión aquí…</div>
+            </div>
+            <div class="video-row">
+              <div class="video-label pink">Video 2</div>
+              <div class="video-prompt">¿Por qué acepté probar estas gomitas?</div>
+              <div class="video-script"><span class="script-label">Script / Guión</span>Escribí tu guión aquí…</div>
+            </div>
+            <div class="video-row">
+              <div class="video-label pink">Video 3</div>
+              <div class="video-prompt">Primeras impresiones y unboxing</div>
+              <div class="video-script"><span class="script-label">Script / Guión</span>Escribí tu guión aquí…</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- DÍA 2 -->
+        <div class="dia-card">
+          <div class="dia-header pink">
+            <div class="dia-number pink">2</div>
+            <div class="dia-title">Día 2 — Conexión personal</div>
+          </div>
+          <div class="dia-videos">
+            <div class="video-row">
+              <div class="video-label pink">Video 1</div>
+              <div class="video-prompt">Mi rutina actual</div>
+              <div class="video-script"><span class="script-label">Script / Guión</span>Escribí tu guión aquí…</div>
+            </div>
+            <div class="video-row">
+              <div class="video-label pink">Video 2</div>
+              <div class="video-prompt">El problema con el que más me identifico</div>
+              <div class="video-script"><span class="script-label">Script / Guión</span>Escribí tu guión aquí…</div>
+            </div>
+            <div class="video-row">
+              <div class="video-label pink">Video 3</div>
+              <div class="video-prompt">POV relacionado con el producto</div>
+              <div class="video-script"><span class="script-label">Script / Guión</span>Escribí tu guión aquí…</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- DÍA 3 -->
+        <div class="dia-card">
+          <div class="dia-header pink">
+            <div class="dia-number pink">3</div>
+            <div class="dia-title">Día 3 — Profundizar</div>
+          </div>
+          <div class="dia-videos">
+            <div class="video-row">
+              <div class="video-label pink">Video 1</div>
+              <div class="video-prompt">Lo que más me llamó la atención</div>
+              <div class="video-script"><span class="script-label">Script / Guión</span>Escribí tu guión aquí…</div>
+            </div>
+            <div class="video-row">
+              <div class="video-label pink">Video 2</div>
+              <div class="video-prompt">Cómo las estoy incorporando a mi día</div>
+              <div class="video-script"><span class="script-label">Script / Guión</span>Escribí tu guión aquí…</div>
+            </div>
+            <div class="video-row">
+              <div class="video-label pink">Video 3</div>
+              <div class="video-prompt">Historia personal relacionada con el ciclo o bienestar emocional</div>
+              <div class="video-script"><span class="script-label">Script / Guión</span>Escribí tu guión aquí…</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- DÍA 4 -->
+        <div class="dia-card">
+          <div class="dia-header pink">
+            <div class="dia-number pink">4</div>
+            <div class="dia-title">Día 4 — Educar y entretener</div>
+          </div>
+          <div class="dia-videos">
+            <div class="video-row">
+              <div class="video-label pink">Video 1</div>
+              <div class="video-prompt">Mitos o errores comunes</div>
+              <div class="video-script"><span class="script-label">Script / Guión</span>Escribí tu guión aquí…</div>
+            </div>
+            <div class="video-row">
+              <div class="video-label pink">Video 2</div>
+              <div class="video-prompt">Get Ready With Me</div>
+              <div class="video-script"><span class="script-label">Script / Guión</span>Escribí tu guión aquí…</div>
+            </div>
+            <div class="video-row">
+              <div class="video-label pink">Video 3</div>
+              <div class="video-prompt">Video respondiendo una pregunta frecuente</div>
+              <div class="video-script"><span class="script-label">Script / Guión</span>Escribí tu guión aquí…</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- DÍA 5 -->
+        <div class="dia-card">
+          <div class="dia-header pink">
+            <div class="dia-number pink">5</div>
+            <div class="dia-title">Día 5 — Storytelling</div>
+          </div>
+          <div class="dia-videos">
+            <div class="video-row">
+              <div class="video-label pink">Video 1</div>
+              <div class="video-prompt">Storytime</div>
+              <div class="video-script"><span class="script-label">Script / Guión</span>Escribí tu guión aquí…</div>
+            </div>
+            <div class="video-row">
+              <div class="video-label pink">Video 2</div>
+              <div class="video-prompt">Mi producto favorito y por qué</div>
+              <div class="video-script"><span class="script-label">Script / Guión</span>Escribí tu guión aquí…</div>
+            </div>
+            <div class="video-row">
+              <div class="video-label pink">Video 3</div>
+              <div class="video-prompt">Contenido tipo UGC</div>
+              <div class="video-script"><span class="script-label">Script / Guión</span>Escribí tu guión aquí…</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- DÍA 6 -->
+        <div class="dia-card">
+          <div class="dia-header pink">
+            <div class="dia-number pink">6</div>
+            <div class="dia-title">Día 6 — Consolidar</div>
+          </div>
+          <div class="dia-videos">
+            <div class="video-row">
+              <div class="video-label pink">Video 1</div>
+              <div class="video-prompt">Lo que aprendí sobre la marca</div>
+              <div class="video-script"><span class="script-label">Script / Guión</span>Escribí tu guión aquí…</div>
+            </div>
+            <div class="video-row">
+              <div class="video-label pink">Video 2</div>
+              <div class="video-prompt">Mi rutina actualizada</div>
+              <div class="video-script"><span class="script-label">Script / Guión</span>Escribí tu guión aquí…</div>
+            </div>
+            <div class="video-row">
+              <div class="video-label pink">Video 3</div>
+              <div class="video-prompt">Razones por las que decidí seguir tomándolas</div>
+              <div class="video-script"><span class="script-label">Script / Guión</span>Escribí tu guión aquí…</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- DÍA 7 -->
+        <div class="dia-card">
+          <div class="dia-header pink">
+            <div class="dia-number pink">7</div>
+            <div class="dia-title">Día 7 — Cerrar fuerte</div>
+          </div>
+          <div class="dia-videos">
+            <div class="video-row">
+              <div class="video-label pink">Video 1</div>
+              <div class="video-prompt">Review completa</div>
+              <div class="video-script"><span class="script-label">Script / Guión</span>Escribí tu guión aquí…</div>
+            </div>
+            <div class="video-row">
+              <div class="video-label pink">Video 2</div>
+              <div class="video-prompt">¿A quién se las recomendaría?</div>
+              <div class="video-script"><span class="script-label">Script / Guión</span>Escribí tu guión aquí…</div>
+            </div>
+            <div class="video-row">
+              <div class="video-label pink">Video 3</div>
+              <div class="video-prompt">Video de venta con CTA directo</div>
+              <div class="video-script"><span class="script-label">Script / Guión</span>Escribí tu guión aquí…</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <span>Sin Filtros Nutrition</span> · sinfiltrosnutrition.com · Campaña Semana 1 · TikTok Shop
+</div>
+
+</body>
+</html>
